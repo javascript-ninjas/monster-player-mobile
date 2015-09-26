@@ -56,7 +56,7 @@ angular.module('starter', [
     )
 
     .state('tab.player',
-      url: '/player/:url',
+      url: '/player?url',
       views:
         'tab-player':
           templateUrl: 'templates/tab-player.html',

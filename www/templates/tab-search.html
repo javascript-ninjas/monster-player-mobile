@@ -1,11 +1,24 @@
 <ion-view view-title="Chats">
-  <ion-content ng-show="searchQuery">
-    <h2>title: {{searchQuery}}</h2>
+  <ion-content>
+    <form ng-submit="submitForm(query)" class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" value="{{searchQuery}}" ng-model="query">
+      </label>
+      <button class="button button-small">
+        Submit
+      </button>
+    </form>
+
+    <div ng-show="searchQuery">
+      <h2>Search results for: {{searchQuery}}</h2>
+
+      <ion-list>
+        <ion-item class="item-icon" ng-repeat="item in searchResults" type="item-text-wrap" href="#/tab/player?url={{item.url}}">
+          <img ng-src="{{item.thumb}}" alt="item.description">
+          <h2>{{item.title}}</h2>
+        </ion-item>
+      </ion-list>
+    </div>
   </ion-content>
-  <ion-list>
-    <ion-item class="item-icon" ng-repeat="item in searchResults" type="item-text-wrap" href="#/tab/player/{{item.url}}">
-      <img ng-src="{{item.thumb}}" alt="item.description">
-      <h2>{{item.title}}</h2>
-    </ion-item>
-  </ion-list>
 </ion-view>

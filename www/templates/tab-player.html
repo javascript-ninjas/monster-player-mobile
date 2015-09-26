@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<ion-view view-title="Player">
+  <ion-content>
+    <ion-audio-track ng-repeat="track in tracks" track="track">
+      <div class="card">
+        <div class="item item-thumbnail-left">
+          <img src="{{track.art}}">
 
-</body>
-</html>
+          <h2>{{track.title}}</h2>
+
+          <p>{{track.artist}}</p>
+          <ion-audio-controls>
+            <a class="button button-icon icon" ion-audio-play></a>
+            <ion-spinner icon="ios" style="position: relative; top: 8px; left: 4px"></ion-spinner>
+          </ion-audio-controls>
+        </div>
+        <div class="item item-divider">
+          <ion-audio-progress-bar display-time></ion-audio-progress-bar>
+        </div>
+      </div>
+    </ion-audio-track>
+  </ion-content>
+</ion-view>
